@@ -1,0 +1,32 @@
+{% extends 'base/main.html' %}
+{% load socialaccount %}
+{% block content %}
+
+<div class="header-bar">
+    <h1>TO DO LIST</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Login">
+    </form>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="{% provider_login_url 'google' %}?next=/"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> <b>Signup Google</b></a>
+
+        </div>
+    </div>
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+</div>
+
+
+
+
+
+
+{% endblock content %}
